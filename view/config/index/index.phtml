@@ -1,0 +1,141 @@
+<?php 
+/**
+ * Pacific NM (https://www.pacificnm.com)
+ *
+ * @link      https://github.com/pacificnm/pnm for the canonical source repository
+ * @copyright Copyright (c) 20011-2016 Pacific NM USA Inc. (https://www.pacificnm.com)
+ * @license
+ */
+?>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box box-primary">
+			<div class="box-header">
+				<h3 class="box-title">
+					<i class="fa fa-cog"></i>
+					<?php echo $this->translate('Config'); ?>
+				</h3>
+				<div class="box-tools">
+					<a href="<?php echo $this->url('config-update');?>" title="<?php echo $this->translate('Edit'); ?>" class="btn btn-box-tool"><i class="fa fa-pencil"></i> <?php echo $this->translate('Edit'); ?></a>
+				</div>
+			</div>
+			<div class="box-body">
+				<div id="myTabs">
+					<ul class="nav nav-tabs" role="tablist" >
+    					<li role="presentation" class="active">
+    						<a href="#company" aria-controls="company" role="tab" data-toggle="tab">
+    							<i class="fa fa-home"></i> <?php echo $this->translate('Company Settings'); ?>
+    						</a>
+    					</li>
+    					<li role="presentation">
+    						<a href="#config" aria-controls="config" role="tab" data-toggle="tab">
+    							<i class="fa fa-gear"></i> <?php echo $this->translate('Application Config'); ?>
+    						</a>
+    					</li>
+    					<li role="presentation">
+    						<a href="#email" aria-controls="email" role="tab" data-toggle="tab">
+    							<i class="fa fa-gear"></i> <?php echo $this->translate('E-Mail Settings'); ?>
+    						</a>
+    					</li>
+					</ul>
+				
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="company">
+							<h3 class="profile-username"><?php echo $this->translate('Company Settings'); ?></h3>
+							<ul class="list-group list-group-unbordered">
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Company Name')?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigCompanyName();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Company Short Name')?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigCompanyNameShort();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Company Abreviation')?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigCompanyNameAbv();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Street')?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigCompanyStreet();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Street Cont.')?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigCompanyStreetCont();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('City')?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigCompanyCity();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('State')?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigCompanyState();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Postal Code')?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigCompanyPostal();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Phone Number')?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigCompanyPhone();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Phone Number Alt.')?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigCompanyPhoneAlt();?></a>
+            					</li>
+            				</ul>
+						</div>
+						
+						<div role="tabpanel" class="tab-pane" id="config">
+							<h3 class="profile-username"><?php echo $this->translate('Application Config'); ?></h3>
+							<ul class="list-group list-group-unbordered">
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Version'); ?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigVersion();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Site'); ?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigHttpAddress();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Date Long'); ?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigDateLong();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Date Short'); ?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigDateShort();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Language'); ?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigLang();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Currency'); ?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigCurrency();?></a>
+            					</li>
+            					
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('Copyright Year Start'); ?></b> <a class="pull-right"><?php echo $this->configEntity->getConfigCopyYear();?></a>
+            					</li>
+            				</ul>
+						</div>
+					
+						<div role="tabpanel" class="tab-pane" id="email">
+							<h3 class="profile-username"><?php echo $this->translate('E-Mail Settings'); ?></h3>
+							<ul class="list-group list-group-unbordered">
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('SMTP Host')?></b> 
+            							<a class="pull-right"><?php echo $this->configEntity->getConfigSmtpHost();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('SMTP Port')?></b> 
+            							<a class="pull-right"><?php echo $this->configEntity->getConfigSmtpPort();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('SMTP Security')?></b> 
+            							<a class="pull-right"><?php echo $this->configEntity->getConfigSmtpSecurity();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('SMTP Display Name')?></b> 
+            							<a class="pull-right"><?php echo $this->configEntity->getConfigSmtpDisplay();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('SMTP E-Mail')?></b> 
+            							<a class="pull-right"><?php echo $this->configEntity->getConfigSmtpEmail();?></a>
+            					</li>
+            					<li class="list-group-item">
+            						<b><?php echo $this->translate('SMTP Password')?></b> 
+            							<a class="pull-right">********</a>
+            					</li>
+            				</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
