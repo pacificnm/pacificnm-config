@@ -1,6 +1,7 @@
-# pacificnm-acl
+# pacificnm-config
 
-Provides a lightweight and flexible access control list (ACL) implementation for privileges management.
+Provides config functions for PacificNM.
 
-File issues at https://github.com/pacificnm/pacificnm-acl/issues
-Documentation is at https://github.com/pacificnm/pacificnm-acl/
+File issues at https://github.com/pacificnm/pacificnm-config/issues
+
+Documentation is at https://github.com/pacificnm/pacificnm-config/

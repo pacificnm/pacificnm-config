@@ -10,7 +10,7 @@ return array(
     'module' => array(
         'Config' => array(
             'name' => 'Config',
-            'version' => '1.0.0',
+            'version' => '1.0.1',
             'install' => array(
                 'require' => array(),
                 'sql' => 'sql/config.sql'
