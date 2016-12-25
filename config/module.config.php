@@ -28,6 +28,12 @@ return array(
             'Config\Controller\ViewController' => 'Config\Controller\Factory\ViewControllerFactory'
         )
     ),
+    'controller_plugins' => array(
+        'factories' => array(
+            'CanRegister' => 'Config\Controller\Plugin\Factory\CanRegisterFactory',
+            'CanResetPassword' => 'Config\Controller\Plugin\Factory\CanResetPasswordFactory'
+        )
+    ),
     'service_manager' => array(
         'factories' => array(
             'Config\Mapper\MysqlMapperInterface' => 'Config\Mapper\Factory\MysqlMapperFactory',
@@ -40,7 +46,7 @@ return array(
             'config-create' => array(
                 'pageTitle' => 'Config',
                 'pageSubTitle' => 'New',
-                'activeMenuItem' => 'admin',
+                'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'config-index',
                 'type' => 'literal',
                 'options' => array(
@@ -54,7 +60,7 @@ return array(
             'config-delete' => array(
                 'pageTitle' => 'Config',
                 'pageSubTitle' => 'Delete',
-                'activeMenuItem' => 'admin',
+                'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'config-index',
                 'type' => 'segment',
                 'options' => array(
@@ -71,7 +77,7 @@ return array(
             'config-index' => array(
                 'pageTitle' => 'Config',
                 'pageSubTitle' => 'Home',
-                'activeMenuItem' => 'admin',
+                'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'config-index',
                 'type' => 'literal',
                 'options' => array(
@@ -95,7 +101,7 @@ return array(
             'config-update' => array(
                 'pageTitle' => 'Config',
                 'pageSubTitle' => 'Edit',
-                'activeMenuItem' => 'admin',
+                'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'config-index',
                 'type' => 'segment',
                 'options' => array(
@@ -112,7 +118,7 @@ return array(
             'config-view' => array(
                 'pageTitle' => 'Config',
                 'pageSubTitle' => 'View',
-                'activeMenuItem' => 'admin',
+                'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'config-index',
                 'type' => 'segment',
                 'options' => array(
@@ -148,6 +154,7 @@ return array(
     'acl' => array(
         'default' => array(
             'guest' => array(),
+            'user' => array(),
             'administrator' => array(
                 'config-create',
                 'config-delete',
@@ -161,14 +168,13 @@ return array(
     'menu' => array(
         'default' => array(
             array(
-                'key' => 'admin',
                 'name' => 'Admin',
+                'route' => 'admin-index',
                 'icon' => 'fa fa-gear',
                 'order' => 99,
                 'active' => true,
                 'items' => array(
                     array(
-                        'key' => 'config-index',
                         'name' => 'Config',
                         'route' => 'config-index',
                         'icon' => 'fa fa-gear',
