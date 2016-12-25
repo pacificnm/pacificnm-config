@@ -163,6 +163,18 @@ class Entity
 
     /**
      *
+     * @var bool
+     */
+    protected $configRegister;
+
+    /**
+     *
+     * @var bool
+     */
+    protected $configResetPassword;
+
+    /**
+     *
      * @return the $configId
      */
     public function getConfigId()
@@ -379,6 +391,24 @@ class Entity
 
     /**
      *
+     * @return the $configRegister
+     */
+    public function getConfigRegister()
+    {
+        return $this->configRegister;
+    }
+
+    /**
+     *
+     * @return the $configResetPassword
+     */
+    public function getConfigResetPassword()
+    {
+        return $this->configResetPassword;
+    }
+
+    /**
+     *
      * @param number $configId            
      */
     public function setConfigId($configId)
@@ -591,5 +621,23 @@ class Entity
     public function setConfigSmtpPassword($configSmtpPassword)
     {
         $this->configSmtpPassword = $configSmtpPassword;
+    }
+
+    /**
+     *
+     * @param boolean $configRegister            
+     */
+    public function setConfigRegister($configRegister)
+    {
+        $this->configRegister = $configRegister;
+    }
+
+    /**
+     *
+     * @param boolean $configResetPassword            
+     */
+    public function setConfigResetPassword($configResetPassword)
+    {
+        $this->configResetPassword = $configResetPassword;
     }
 }

@@ -352,6 +352,36 @@ class Form extends ZendForm implements InputFilterProviderInterface
             )
         ));
         
+        // configRegister
+        $this->add(array(
+            'type' => 'Checkbox',
+            'name' => 'configRegister',
+            'options' => array(
+                'label' => 'Enable Register',
+                'use_hidden_element' => true,
+                'checked_value' => '1',
+                'unchecked_value' => '0'
+            ),
+            'attributes' => array(
+                'id' => 'configRegister'
+            )
+        ));
+        
+        // configResetPassword
+        $this->add(array(
+            'type' => 'Checkbox',
+            'name' => 'configResetPassword',
+            'options' => array(
+                'label' => 'Enable Password Reset',
+                'use_hidden_element' => true,
+                'checked_value' => '1',
+                'unchecked_value' => '0'
+            ),
+            'attributes' => array(
+                'id' => 'configResetPassword'
+            )
+        ));
+        
         // button
         $this->add(array(
             'name' => 'submit',
