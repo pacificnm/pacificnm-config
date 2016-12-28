@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 11, 2016 at 06:29 AM
+-- Generation Time: Dec 27, 2016 at 09:44 PM
 -- Server version: 10.0.28-MariaDB-0+deb8u1
 -- PHP Version: 5.6.27-0+deb8u1
 
@@ -12,7 +12,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Database: `pacificnm`
+-- Database: `camper`
 --
 
 -- --------------------------------------------------------
@@ -45,15 +45,17 @@ CREATE TABLE IF NOT EXISTS `config` (
   `config_smtp_security` varchar(60) DEFAULT NULL,
   `config_smtp_display` varchar(255) DEFAULT NULL,
   `config_smtp_email` varchar(255) DEFAULT NULL,
-  `config_smtp_password` varchar(255) NOT NULL
+  `config_smtp_password` varchar(255) NOT NULL,
+  `config_register` int(3) NOT NULL,
+  `config_reset_password` int(3) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `config`
 --
 
-INSERT INTO `config` (`config_id`, `config_version`, `config_copy_year`, `config_company_name`, `config_company_name_short`, `config_company_name_abv`, `config_company_street`, `config_company_street_cont`, `config_company_city`, `config_company_state`, `config_company_postal`, `config_company_phone`, `config_company_phone_alt`, `config_http_address`, `config_date_long`, `config_date_short`, `config_lang`, `config_currency`, `config_smtp_host`, `config_smtp_port`, `config_smtp_security`, `config_smtp_display`, `config_smtp_email`, `config_smtp_password`) VALUES
-(1, '1.0.0', 2013, '', '', '', '', '', '', '', '', '', '', '', 'm/d/Y h:i a', 'm/d/Y', 'en_US', 'USD', '', '', '', '', '', '');
+INSERT INTO `config` (`config_id`, `config_version`, `config_copy_year`, `config_company_name`, `config_company_name_short`, `config_company_name_abv`, `config_company_street`, `config_company_street_cont`, `config_company_city`, `config_company_state`, `config_company_postal`, `config_company_phone`, `config_company_phone_alt`, `config_http_address`, `config_date_long`, `config_date_short`, `config_lang`, `config_currency`, `config_smtp_host`, `config_smtp_port`, `config_smtp_security`, `config_smtp_display`, `config_smtp_email`, `config_smtp_password`, `config_register`, `config_reset_password`) VALUES
+(1, '1.0.3', 2013, '', '', '', '', '', '', '', '', '', '', '', 'm/d/Y h:i a', 'm/d/Y', 'en_US', 'USD', '', 0, 'None', '', '', '', 1, 1);
 
 --
 -- Indexes for dumped tables
