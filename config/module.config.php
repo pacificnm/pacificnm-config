@@ -10,7 +10,7 @@ return array(
     'module' => array(
         'Config' => array(
             'name' => 'Config',
-            'version' => '1.0.1',
+            'version' => '1.0.3',
             'install' => array(
                 'require' => array(),
                 'sql' => 'sql/config.sql'
@@ -38,6 +38,7 @@ return array(
         'factories' => array(
             'Config\Mapper\MysqlMapperInterface' => 'Config\Mapper\Factory\MysqlMapperFactory',
             'Config\Service\ServiceInterface' => 'Config\Service\Factory\ServiceFactory',
+            'Config\Form\Form' => 'Config\Form\Factory\FormFactory',
             
         )
     ),
@@ -48,6 +49,8 @@ return array(
                 'pageSubTitle' => 'New',
                 'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'config-index',
+                'icon' => 'fa fa-gear',
+                'layout' => 'admin',
                 'type' => 'literal',
                 'options' => array(
                     'route' => '/admin/config/create',
@@ -62,6 +65,8 @@ return array(
                 'pageSubTitle' => 'Delete',
                 'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'config-index',
+                'icon' => 'fa fa-gear',
+                'layout' => 'admin',
                 'type' => 'segment',
                 'options' => array(
                     'route' => '/admin/config/delete/[:id]',
@@ -79,6 +84,8 @@ return array(
                 'pageSubTitle' => 'Home',
                 'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'config-index',
+                'icon' => 'fa fa-gear',
+                'layout' => 'admin',
                 'type' => 'literal',
                 'options' => array(
                     'route' => '/admin/config',
@@ -89,12 +96,20 @@ return array(
                 )
             ),
             'config-reset' => array(
+                'pageTitle' => 'Rest',
+                'pageSubTitle' => '',
+                'activeMenuItem' => '',
+                'activeSubMenuItem' => '',
+                'icon' => 'fa fa-gear',
+                'layout' => 'rest',
                 'type' => 'segment',
                 'options' => array(
                     'route' => '/api/config[/:id]',
                     'defaults' => array(
                         'controller' => 'Config\Controller\RestController',
-                        'action' => 'index'
+                    ),
+                    'constraints' => array(
+                        'id' => '[0-9]+'
                     )
                 )
             ),
@@ -103,6 +118,8 @@ return array(
                 'pageSubTitle' => 'Edit',
                 'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'config-index',
+                'icon' => 'fa fa-gear',
+                'layout' => 'admin',
                 'type' => 'segment',
                 'options' => array(
                     'route' => '/admin/config/update/[:id]',
@@ -120,6 +137,8 @@ return array(
                 'pageSubTitle' => 'View',
                 'activeMenuItem' => 'admin-index',
                 'activeSubMenuItem' => 'config-index',
+                'icon' => 'fa fa-gear',
+                'layout' => 'admin',
                 'type' => 'segment',
                 'options' => array(
                     'route' => '/admin/config/view/[:id]',
@@ -143,7 +162,7 @@ return array(
     ),
     'view_helpers' => array(
         'factories' => array(
-            'AppConfig' => 'Config\View\Helper\Factory\AppConfigFactory'
+            'AppConfig' => 'Config\View\Helper\Factory\AppConfigFactory',
         ),
     ),
     'view_manager' => array(
@@ -173,6 +192,7 @@ return array(
                 'icon' => 'fa fa-gear',
                 'order' => 99,
                 'active' => true,
+                'location' => 'left',
                 'items' => array(
                     array(
                         'name' => 'Config',
