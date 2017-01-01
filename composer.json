@@ -9,6 +9,11 @@
             "email": "pacificnm@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Pacificnm\\Config\\": "vendor/pacificnm/pacificnm-config/src"
+        }
+    },
     "minimum-stability": "dev",
     "require": {
     	"php" : ">=5.5"
