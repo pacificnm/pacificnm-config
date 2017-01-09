@@ -8,6 +8,8 @@
  */
 namespace Pacificnm\Config\Entity;
 
+use Pacificnm\Theme\Entity\Entity as ThemeEntity;
+
 /**
  *
  * @author jaimie <pacificnm@gmail.com>
@@ -172,6 +174,18 @@ class Entity
      * @var bool
      */
     protected $configResetPassword;
+
+    /**
+     *
+     * @var string
+     */
+    protected $configThemeId;
+
+    /**
+     *
+     * @var ThemeEntity
+     */
+    protected $themeEntity;
 
     /**
      *
@@ -409,6 +423,24 @@ class Entity
 
     /**
      *
+     * @return the $configThemeId
+     */
+    public function getConfigThemeId()
+    {
+        return $this->configThemeId;
+    }
+
+    /**
+     *
+     * @return the $themeEntity
+     */
+    public function getThemeEntity()
+    {
+        return $this->themeEntity;
+    }
+
+    /**
+     *
      * @param number $configId            
      */
     public function setConfigId($configId)
@@ -639,5 +671,23 @@ class Entity
     public function setConfigResetPassword($configResetPassword)
     {
         $this->configResetPassword = $configResetPassword;
+    }
+
+    /**
+     *
+     * @param string $configThemeId            
+     */
+    public function setConfigThemeId($configThemeId)
+    {
+        $this->configThemeId = $configThemeId;
+    }
+
+    /**
+     *
+     * @param \Pacificnm\Theme\Entity\Entity $themeEntity            
+     */
+    public function setThemeEntity($themeEntity)
+    {
+        $this->themeEntity = $themeEntity;
     }
 }

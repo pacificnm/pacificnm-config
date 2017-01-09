@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `config` (
   `config_smtp_password` varchar(255) NOT NULL,
   `config_register` int(3) NOT NULL,
   `config_reset_password` int(3) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2;
 
 --
 -- Dumping data for table `config`

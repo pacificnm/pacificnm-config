@@ -12,6 +12,7 @@ use Zend\Form\Form as ZendForm;
 use Zend\InputFilter\InputFilterProviderInterface;
 use Pacificnm\Config\Hydrator\Hydrator;
 use Pacificnm\Config\Entity\Entity;
+use Pacificnm\Theme\Service\ServiceInterface as ThemeServiceInterface;
 
 /**
  *
@@ -21,20 +22,29 @@ use Pacificnm\Config\Entity\Entity;
  */
 class Form extends ZendForm implements InputFilterProviderInterface
 {
-
     /**
-     *
-     * @param string $name            
-     * @param array $options            
-     * @return \Config\Form\Form
+     * 
+     * @var ThemeServiceInterface
      */
-    function __construct($name = 'config-form', $options = array())
+    protected $themeService;
+    
+    
+    /**
+     * 
+     * @param ThemeServiceInterface $themeService
+     * @param string $name
+     * @param array $options
+     * @return \Pacificnm\Config\Form\Form
+     */
+    function __construct(ThemeServiceInterface $themeService, $name = 'config-form', $options = array())
     {
         parent::__construct($name, $options);
         
         $this->setHydrator(new Hydrator(false));
         
         $this->setObject(new Entity());
+        
+        $this->themeService = $themeService;
         
         // configId
         $this->add(array(
@@ -47,6 +57,21 @@ class Form extends ZendForm implements InputFilterProviderInterface
             'name' => 'configVersion',
             'type' => 'hidden'
         ));
+        
+        // configThemeId
+        $this->add(array(
+            'name' => 'configThemeId',
+            'type' => 'select',
+            'options' => array(
+                'label' => 'Theme:',
+                'value_options' => $this->getThemeOptions()
+            ),
+            'attributes' => array(
+                'class' => 'form-control',
+                'id' => 'configThemeId'
+            )
+        ));
+        
         
         // configCopyYear
         $this->add(array(
@@ -407,5 +432,21 @@ class Form extends ZendForm implements InputFilterProviderInterface
         return array()
 
         ;
+    }
+    
+    protected function getThemeOptions()
+    {
+        $options = array();
+        
+        $entitys = $this->themeService->getAll(array(
+            'pagination' => 'off',
+            'themeActive' => 1
+        ));
+        
+        foreach($entitys as $entity) {
+            $options[$entity->getThemeId()] = $entity->getThemeName();
+        }
+        
+        return $options;
     }
 }

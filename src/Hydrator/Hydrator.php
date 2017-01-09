@@ -11,7 +11,6 @@ namespace Pacificnm\Config\Hydrator;
 use Zend\Hydrator\ClassMethods;
 use Pacificnm\Config\Entity\Entity;
 
-
 /**
  *
  * @author jaimie <pacificnm@gmail.com>
@@ -44,6 +43,10 @@ class Hydrator extends ClassMethods
         
         parent::hydrate($data, $object);
         
+        $themeEntity = parent::hydrate($data, new \Pacificnm\Theme\Entity\Entity());
+        
+        $object->setThemeEntity($themeEntity);
+        
         return $object;
     }
 
@@ -60,6 +63,8 @@ class Hydrator extends ClassMethods
         }
         
         $data = parent::extract($object);
+        
+        unset($data['theme_entity']);
         
         return $data;
     }

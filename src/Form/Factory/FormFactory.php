@@ -20,7 +20,9 @@ class FormFactory
      */
     public function __invoke(ServiceLocatorInterface $serviceLocator)
     {
-        return new Form();
+        $themeService = $serviceLocator->get('Pacificnm\Theme\Service\ServiceInterface');
+        
+        return new Form($themeService);
     }
 }
 

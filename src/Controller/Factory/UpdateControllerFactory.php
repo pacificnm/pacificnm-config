@@ -32,7 +32,7 @@ class UpdateControllerFactory
         
         $service = $realServiceLocator->get('Pacificnm\Config\Service\ServiceInterface');
         
-        $form = new Form();
+        $form = $realServiceLocator->get('Pacificnm\Config\Form\Form');
         
         $config = $realServiceLocator->get('config');
         
