@@ -60,6 +60,8 @@ class MysqlMapper extends AbstractMysqlMapper implements MysqlMapperInterface
     {
         $this->select = $this->readSql->select('config');
         
+        $this->joinTheme();
+        
         $this->select->where(array(
             'config.config_id = ?' => $id
         ));
@@ -116,5 +118,23 @@ class MysqlMapper extends AbstractMysqlMapper implements MysqlMapperInterface
         ));
         
         return $this->deleteRow();
+    }
+    
+    
+    /**
+     * 
+     * @return \Pacificnm\Config\Mapper\MysqlMapper
+     */
+    protected function joinTheme()
+    {
+        
+        $this->select->join('theme', 'config.config_theme_id = theme.theme_id', array(
+            'theme_id',
+            'theme_name',
+            'theme_file',
+            'theme_active'
+        ), 'left');
+        
+        return $this;
     }
 }

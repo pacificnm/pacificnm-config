@@ -10,7 +10,7 @@ namespace Pacificnm\Config\Controller;
 
 use Zend\View\Model\ViewModel;
 use Zend\Crypt\BlockCipher;
-use Application\Controller\AbstractApplicationController;
+use Pacificnm\Controller\AbstractApplicationController;
 use Pacificnm\Config\Service\ServiceInterface;
 use Pacificnm\Config\Form\Form;
 

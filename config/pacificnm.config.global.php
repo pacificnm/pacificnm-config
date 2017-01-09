@@ -38,7 +38,7 @@ return array(
         'factories' => array(
             'Pacificnm\Config\Mapper\MysqlMapperInterface' => 'Pacificnm\Config\Mapper\Factory\MysqlMapperFactory',
             'Pacificnm\Config\Service\ServiceInterface' => 'Pacificnm\Config\Service\Factory\ServiceFactory',
-            'Pacificnm\Config\Form\Form' => 'Pacificnm\Config\Form\Factory\FormFactory'
+            'Pacificnm\Config\Form\Form' => 'Pacificnm\Config\Form\Factory\FormFactory',
         )
         
     ),
